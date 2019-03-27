@@ -7,7 +7,7 @@ jobs:
     build:
         docker:
           - image: circleci/node:7.10
-        working_directory: ~/repo/webapp
+        working_directory: ~/repo/myLambda
 
         steps:
             - checkout
@@ -36,7 +36,7 @@ jobs:
                 command: zip -r myLambda.zip index.js package.json
             - run:
                 name: Amazon Lambda
-                command: aws --region us-east-1 lambda update-function-code --function-name passwordRestService --zip-file fileb://myLambda.zip
+                command: aws --region us-east-1 lambda update-function-code --function-name passwordResetService --zip-file fileb://myLambda.zip
 
 
 
